@@ -1,0 +1,12 @@
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
+const PORT = process.env.PORT || 3001;
+import { router } from "./routes";
+import dbConnection from "./config/db";
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(router);
+dbConnection().then(() => console.log("Connection to DB succesfully"));
+app.listen(PORT, () => console.log(`Server running at ${PORT}`));
