@@ -5,7 +5,9 @@ const ProductSchema = new Schema<Product>(
   {
     name: String,
     description: String,
+    code: String,
     price: Number,
+    images: [String],
   },
   { timestamps: true }
 );
